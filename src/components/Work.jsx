@@ -2,6 +2,9 @@ import { ArrowUpRight } from 'lucide-react';
 import { projects } from '../data/projects';
 import './Work.css';
 
+const base = import.meta.env.BASE_URL;
+const withBase = (path) => `${base}${path.replace(/^\//, '')}`;
+
 const WorkCase = ({ project }) => {
   const hasLink = Boolean(project.url && project.url !== '#');
   const linkLabel = project.url.includes('github.com') ? 'View Repository' : 'Open Live Project';
@@ -14,7 +17,7 @@ const WorkCase = ({ project }) => {
     <article className="work-case">
       <img 
         className="work-case-image" 
-        src={project.img} 
+        src={withBase(project.img)} 
         alt={project.alt} 
         loading="lazy" 
         decoding="async"
@@ -74,7 +77,7 @@ const WorkCase = ({ project }) => {
               {galleryScreenshots.map((shot, index) => (
                 <a
                   key={shot.src}
-                  href={shot.src}
+                  href={withBase(shot.src)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="work-case-shot-link"
@@ -82,7 +85,7 @@ const WorkCase = ({ project }) => {
                 >
                   <img
                     className="work-case-shot"
-                    src={shot.src}
+                    src={withBase(shot.src)}
                     alt={shot.alt || `${project.title} screenshot ${index + 2}`}
                     loading="lazy"
                     decoding="async"
