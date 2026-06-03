@@ -1,0 +1,134 @@
+.services-section {
+  position: relative;
+}
+
+.services-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-bright), transparent);
+}
+
+.services-header {
+  max-width: 640px;
+  margin-bottom: 56px;
+}
+
+.services-copy {
+  color: var(--text-2);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-top: 14px;
+}
+
+/* Collaboration phases */
+.services-workflow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-bottom: 56px;
+  background: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.workflow-item {
+  background: var(--bg-2);
+  padding: 32px 28px;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.workflow-item:hover {
+  background: var(--surface-hover);
+}
+
+.workflow-step {
+  font-size: 0.65rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.workflow-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.workflow-detail {
+  font-size: 0.86rem;
+  color: var(--text-2);
+  line-height: 1.7;
+}
+
+/* Workflow step number accent */
+.workflow-item::before {
+  content: attr(data-step);
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-family: var(--font-mono);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: rgba(124,111,255,0.06);
+  line-height: 1;
+}
+
+/* Services grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.service-card {
+  background: var(--bg-2);
+  padding: 36px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+.service-card:hover {
+  background: rgba(124,111,255,0.05);
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient);
+  transition: width 0.4s ease;
+}
+
+.service-card:hover::after { width: 100%; }
+
+.service-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.service-desc {
+  font-size: 0.875rem;
+  color: var(--text-2);
+  line-height: 1.75;
+}
+
+@media (max-width: 900px) {
+  .services-workflow { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+}

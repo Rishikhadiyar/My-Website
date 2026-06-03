@@ -1,0 +1,66 @@
+.custom-cursor-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.cursor-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--accent-2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10002;
+  box-shadow: 0 0 10px var(--accent-2);
+}
+
+.cursor-ring {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(124, 111, 255, 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10001;
+  pointer-events: none;
+  background: rgba(124, 111, 255, 0.05);
+  backdrop-filter: blur(2px);
+}
+
+.cursor-coords {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-2);
+  line-height: 1.2;
+  pointer-events: none;
+  white-space: nowrap;
+  letter-spacing: 1px;
+}
+
+.coord-label {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+body.custom-cursor-active,
+body.custom-cursor-active a,
+body.custom-cursor-active button,
+body.custom-cursor-active .work-item,
+body.custom-cursor-active .work-link,
+body.custom-cursor-active .btn-primary,
+body.custom-cursor-active .btn-secondary,
+body.custom-cursor-active .btn-outline {
+  cursor: none !important;
+}
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .custom-cursor-wrapper {
+    display: none;
+  }
+}
