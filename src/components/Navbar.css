@@ -27,26 +27,30 @@
 }
 
 .nav-logo {
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  font-weight: 600;
   cursor: pointer;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: none;
   border: none;
   padding: 0;
-  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
   transition: opacity 0.2s ease;
+  flex-shrink: 0;
 }
 
-.nav-logo:hover { opacity: 0.8; }
+.nav-logo:hover { opacity: 0.85; }
 
 .nav-logo:focus-visible {
   outline: 2px solid var(--focus-ring);
   outline-offset: 3px;
   border-radius: 4px;
+}
+
+.nav-logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
+  mix-blend-mode: screen;
+  filter: brightness(1.1);
 }
 
 .nav-links {

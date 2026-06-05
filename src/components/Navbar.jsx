@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import './Navbar.css';
 
+const base = import.meta.env.BASE_URL;
+
 const NAV_ITEMS = ['work', 'about', 'process', 'proof'];
 
 const Navbar = () => {
@@ -75,7 +77,11 @@ const Navbar = () => {
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           aria-label="Rishi Khadiyar - scroll to top"
         >
-          Rishi Khadiyar
+          <img
+            src={`${base}logo.png`}
+            alt="RK Logo"
+            className="nav-logo-img"
+          />
         </button>
 
         <ul className="nav-links hide-mobile" role="list">
